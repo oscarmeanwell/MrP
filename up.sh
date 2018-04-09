@@ -17,6 +17,11 @@ else
 		git add .
 		git commit -m "Automated commit"
 		git push
+		git checkout final
+    	git pull origin master
+    	git push
+    	git checkout master
+    	printf "\n Done, now go have a brew!\n"
 	else
 		printf "\nDont trust me do you?\n"
 	fi
