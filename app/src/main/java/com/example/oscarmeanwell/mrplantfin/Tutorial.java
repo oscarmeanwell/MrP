@@ -67,7 +67,7 @@ public class Tutorial extends AppCompatActivity {
                     count = 3;
                 }
                 else if (count == 3){
-                    Intent intent = new Intent(Tutorial.this, MainActivity.class);
+                    Intent intent = new Intent(Tutorial.this, SelectPlant.class);
                     startActivity(intent);
                     count = 0;
                 }
