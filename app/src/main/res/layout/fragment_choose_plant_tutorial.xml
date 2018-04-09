@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.oscarmeanwell.mrplantfin.Tutorial">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="15dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Soon you will be navigated to a screen asking you to select what type of plant you have. This is necessary so we can ensure your plant has the correct levels of water, moisture, and light."
+        android:id="@+id/textView" />
+
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher_foreground"
+        android:id="@+id/btnImg4"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="42dp"
+        android:layout_alignTop="@+id/btnImg3"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher_foreground"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:layout_marginTop="52dp"
+        android:id="@+id/btnImg3"
+        android:layout_below="@+id/btnImg1"
+        android:layout_alignStart="@+id/btnImg1" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher_foreground"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:id="@+id/btnImg2"
+        android:layout_alignTop="@+id/btnImg1"
+        android:layout_alignStart="@+id/btnImg4" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher_foreground"
+        android:layout_marginStart="32dp"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:layout_marginTop="47dp"
+        android:id="@+id/btnImg1"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Flowering"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnImg1"
+        android:layout_alignStart="@+id/btnImg1"
+        android:layout_marginStart="24dp"
+        android:layout_alignRight="@id/btnImg1"
+        android:layout_alignLeft="@id/btnImg1"
+        android:gravity="center"
+        android:id="@+id/txtOne" />
+
+    <TextView
+        android:text="Foliage Plants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFour"
+        android:gravity="center"
+        android:layout_alignBaseline="@+id/txtThree"
+        android:layout_alignBottom="@+id/txtThree"
+        android:layout_alignLeft="@id/btnImg4"
+        android:layout_alignRight="@id/btnImg4"/>
+
+    <TextView
+        android:text="Easy Low Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtThree"
+        android:layout_below="@+id/btnImg3"
+        android:layout_alignRight="@id/btnImg3"
+        android:layout_alignLeft="@id/btnImg3"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:text="Cacti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTwo"
+        android:gravity="center"
+        android:layout_below="@+id/btnImg2"
+        android:layout_alignLeft="@id/btnImg2"
+        android:layout_alignRight="@id/btnImg2"
+        />
+
+    <TextView
+        android:text="Please Select a plant type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/txtSelect"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+         />
+
+</RelativeLayout>
