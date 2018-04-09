@@ -12,4 +12,10 @@
         android:gravity="center"
         android:paddingTop="15dp"/>
 
+    <ImageView
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:id="@+id/imgview"
+        android:src="@drawable/ard"/>
+
 </RelativeLayout>
