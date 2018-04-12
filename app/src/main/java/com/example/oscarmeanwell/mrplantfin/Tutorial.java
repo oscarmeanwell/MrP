@@ -24,8 +24,8 @@ public class Tutorial extends AppCompatActivity {
         final TextView textView = (TextView)findViewById(R.id.txtSwipe);
         final ImageView imageView = (ImageView) findViewById(R.id.swipeLeft);
         RelativeLayout myLayout = (RelativeLayout)findViewById(R.id.activity_tutorial);
-        //Intent selection = new Intent(Tutorial.this, SelectPlant.class);
-        //startActivity(selection);
+        Intent selection = new Intent(Tutorial.this, SelectPlant.class);
+        startActivity(selection);
         myLayout.setOnTouchListener(new OnSwipeTouchListener(Tutorial.this) {
             public void onSwipeTop() {
 

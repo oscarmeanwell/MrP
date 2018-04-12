@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Intent welcome = new Intent(MainActivity.this, Tutorial.class);
-                //startActivity(welcome);
-                //overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-                //finish();
+                Intent welcome = new Intent(MainActivity.this, Tutorial.class);
+                startActivity(welcome);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                finish();
             }
         }, WELCOME_TIMEOUT);
     }
