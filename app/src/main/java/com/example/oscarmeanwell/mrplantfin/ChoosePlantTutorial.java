@@ -13,7 +13,7 @@ public class ChoosePlantTutorial extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_choose_plant_tutorial, container, false);
-        Intent select= new Intent(getActivity(), SelectPlant.class);
-        startActivity(select);
+        //Intent select= new Intent(getActivity(), SelectPlant.class);
+        //startActivity(select);
     }
 }

@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class SelectPlant extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+         {
 
 
     @Override
@@ -26,9 +26,9 @@ public class SelectPlant extends AppCompatActivity
         super.setTitle("Mr Plant");
 
         setContentView(R.layout.activity_select_plant);
-
+/*
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -106,5 +106,6 @@ public class SelectPlant extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+        */
     }
-}
+    }

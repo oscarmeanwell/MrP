@@ -21,7 +21,7 @@ else
 		git pull origin master
 		git push
 		git checkout master
-        printf "\n Done, now go have a brew!\n"
+        printf "\nDone, now go have a brew!\n\n"
 	else
 		printf "\nDont trust me do you?\n"
 	fi
