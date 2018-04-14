@@ -17,19 +17,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class SelectPlant extends AppCompatActivity
-         {
-
+public class SelectPlant extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setTitle("Mr Plant");
         setContentView(R.layout.activity_select_plant);
-        final Button floral = (Button)findViewById(R.id.floral);
-        final Button cacti = (Button)findViewById(R.id.cacti);
-        final Button lowlight = (Button)findViewById(R.id.lowlight);
-        final Button foil = (Button)findViewById(R.id.foliage);
+        final Button floral = (Button) findViewById(R.id.floral);
+        final Button cacti = (Button) findViewById(R.id.cacti);
+        final Button lowlight = (Button) findViewById(R.id.lowlight);
+        final Button foil = (Button) findViewById(R.id.foliage);
 
         floral.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,86 +63,8 @@ public class SelectPlant extends AppCompatActivity
                 startActivity(intent);
             }
         });
-/*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
 
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        System.out.println(item.getTitle());
-
-        if (id == R.id.place_1) {
-            System.out.println("You pressed: "+id);
-            Intent intent = new Intent(this, Tutorial.class);
-            startActivity(intent);
-        } else if (id == R.id.place_2) {
-
-        } else if (id == R.id.place_3) {
-
-        } else if (id == R.id.place_4) {
-
-        } else if (id == R.id.place_5) {
-
-        } else if (id == R.id.place_6) {
-
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-        */
-    }
-    }
+}

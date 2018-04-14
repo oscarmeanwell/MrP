@@ -3,6 +3,8 @@ package com.example.oscarmeanwell.mrplantfin;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -16,6 +18,7 @@ public class ViewPlant extends AppCompatActivity {
     TextView txtSoil;
     TextView txtHeader;
     TextView txtUpdate;
+    Button btn;
     double temp;
     double hum;
     double soil;
@@ -32,7 +35,21 @@ public class ViewPlant extends AppCompatActivity {
         txtSoil = (TextView)findViewById(R.id.txtSoil);
         txtHeader = (TextView)findViewById(R.id.headertxt1);
         txtUpdate = (TextView)findViewById(R.id.lastUpdated);
+        btn = (Button)findViewById(R.id.btn);
         //get data from server
+        getRefresh();
+        plantType = getIntent().getStringExtra("plant");
+        txtHeader.setText(plantType + " Levels");
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getRefresh();
+            }
+        });
+
+    }
+    public void getRefresh(){
         HashMap<String, String> data = new GetServerData().GetServerDataNow();
         //set int variables
         temp = Double.parseDouble(data.get("temp"));
@@ -44,14 +61,9 @@ public class ViewPlant extends AppCompatActivity {
         txtSoil.setText("Soil Humidity: " + soil);
         txtUpdate.setText("Last updated: " + data.get("datetime").toString());
         //this will look at hardcoded values
-
         setTemperatureColor();
         setHumidityColor();
         setSoilHumidityColor();
-
-        plantType = getIntent().getStringExtra("plant");
-        txtHeader.setText(plantType + " Levels");
-
     }
 
     public void setTemperatureColor(){
