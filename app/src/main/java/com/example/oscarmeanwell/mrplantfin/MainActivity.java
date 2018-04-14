@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity
 
         //Development call wont be in actual
         //begin
-        Intent intent = new Intent(this, SelectPlant.class);
-        startActivity(intent);
+       // Intent intent = new Intent(this, SelectPlant.class);
+        //startActivity(intent);
         //end
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -108,15 +108,11 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, Tutorial.class);
             startActivity(intent);
         } else if (id == R.id.place_2) {
+            Intent intent = new Intent(MainActivity.this, SelectPlant.class);
+            startActivity(intent);
 
         } else if (id == R.id.place_3) {
-
-        } else if (id == R.id.place_4) {
-
-        } else if (id == R.id.place_5) {
-
-        } else if (id == R.id.place_6) {
-
+            //settings
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
