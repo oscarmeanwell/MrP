@@ -33,7 +33,7 @@ public class SelectPlant extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
-                intent.putExtra("plant", "floral");
+                intent.putExtra("plant", "Floral");
                 startActivity(intent);
             }
         });
@@ -42,7 +42,7 @@ public class SelectPlant extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
-                intent.putExtra("plant", "cacti");
+                intent.putExtra("plant", "Cacti");
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class SelectPlant extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
-                intent.putExtra("plant", "lowlight");
+                intent.putExtra("plant", "Low Light");
                 startActivity(intent);
             }
         });
@@ -59,7 +59,7 @@ public class SelectPlant extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
-                intent.putExtra("plant", "foliage");
+                intent.putExtra("plant", "Foliage");
                 startActivity(intent);
             }
         });

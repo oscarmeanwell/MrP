@@ -79,7 +79,6 @@ public class ViewPlant extends AppCompatActivity {
             txtTemp.setBackgroundColor(Color.parseColor("#FF0000"));
         }
     }
-
     public void setHumidityColor(){
         if (hum < 15 && hum > 0 ){
             //This is green so ideal temperature conditions
@@ -133,7 +132,7 @@ public class ViewPlant extends AppCompatActivity {
         tmpCactiSoil.put("ideal", 10.0);
         tmpCactiSoil.put("max", 20.0);
         tmpCacti.put("soil", tmpCactiSoil);
-        levels.put("cacti", tmpCacti);
+        levels.put("Cacti", tmpCacti);
         System.out.println("HEHHE: " + levels.get("cacti").get("temp").get("min"));
     }
     public void buildFloralHash(){

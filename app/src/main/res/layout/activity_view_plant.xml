@@ -75,6 +75,12 @@
             android:text="Hello"
             android:gravity="center"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btn"
+            android:text="Refresh"/>
     </RelativeLayout>
 
 
