@@ -37,8 +37,9 @@ public class ViewPlant extends AppCompatActivity {
         txtUpdate = (TextView)findViewById(R.id.lastUpdated);
         btn = (Button)findViewById(R.id.btn);
         //get data from server
-        getRefresh();
+
         plantType = getIntent().getStringExtra("plant");
+        getRefresh();
         txtHeader.setText(plantType + " Levels");
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -67,12 +68,14 @@ public class ViewPlant extends AppCompatActivity {
     }
 
     public void setTemperatureColor(){
-        if (temp < 15 && temp > 0 ){
+        if (temp > levels.get(plantType).get("temp").get("ideal")-5.0 && temp < levels.get(plantType).get("temp").get("ideal")+5.0 ){
+            //Is temp 5 degreese less or more than optimum
             //This is green so ideal temperature conditions
             txtTemp.setBackgroundColor(Color.parseColor("#008000"));
         }
-        else if (temp  > 14 && temp < 30 ){
+        else if (temp > levels.get(plantType).get("temp").get("min") && temp < levels.get(plantType).get("temp").get("max")){
             //This is amber
+            //More than the min, less than the max
             txtTemp.setBackgroundColor(Color.parseColor("#FFC200"));
         }
         else{
@@ -80,11 +83,12 @@ public class ViewPlant extends AppCompatActivity {
         }
     }
     public void setHumidityColor(){
-        if (hum < 15 && hum > 0 ){
+        if (hum > levels.get(plantType).get("hum").get("ideal")-5.0 && hum < levels.get(plantType).get("hum").get("ideal")+5.0){
             //This is green so ideal temperature conditions
+            //5 less or more than ideal
             txtHum.setBackgroundColor(Color.parseColor("#008000"));
         }
-        else if (hum  > 14 && hum < 30 ){
+        else if (hum > levels.get(plantType).get("hum").get("min") && hum < levels.get(plantType).get("hum").get("max")){
             //This is amber
             txtHum.setBackgroundColor(Color.parseColor("#FFC200"));
         }
@@ -94,11 +98,11 @@ public class ViewPlant extends AppCompatActivity {
     }
 
     public void setSoilHumidityColor(){
-        if (soil < 15 && soil > 0 ){
+        if (soil > levels.get(plantType).get("soil").get("ideal")-5.0 && hum < levels.get(plantType).get("soil").get("ideal")+5.0){
             //This is green so ideal temperature conditions
             txtSoil.setBackgroundColor(Color.parseColor("#008000"));
         }
-        else if (soil  > 14 && soil < 30 ){
+        else if (soil > levels.get(plantType).get("soil").get("ideal") && hum < levels.get(plantType).get("soil").get("ideal")){
             //This is amber
             txtSoil.setBackgroundColor(Color.parseColor("#FFC200"));
         }
@@ -119,8 +123,8 @@ public class ViewPlant extends AppCompatActivity {
         //Build Temp
         HashMap<String, Double> tmpCactiTemp = new HashMap<>();
         tmpCactiTemp.put("min", 0.0);
-        tmpCactiTemp.put("ideal", 10.0);
-        tmpCactiTemp.put("max", 20.0);
+        tmpCactiTemp.put("ideal", 20.0);
+        tmpCactiTemp.put("max", 30.0);
         tmpCacti.put("temp", tmpCactiTemp);
         HashMap<String, Double> tmpCactiHum = new HashMap<>();
         tmpCactiHum.put("min", 2.0);
@@ -133,7 +137,6 @@ public class ViewPlant extends AppCompatActivity {
         tmpCactiSoil.put("max", 20.0);
         tmpCacti.put("soil", tmpCactiSoil);
         levels.put("Cacti", tmpCacti);
-        System.out.println("HEHHE: " + levels.get("cacti").get("temp").get("min"));
     }
     public void buildFloralHash(){
         //Build cacti now
@@ -156,7 +159,7 @@ public class ViewPlant extends AppCompatActivity {
         tmpFoloral.put("soil", tmpSoil);
 
         levels.put("Floral", tmpFoloral);
-        System.out.println("HEHHE: " + levels.get("Floral").get("temp").get("min"));
+        //System.out.println("HEHHE: " + levels.get("Floral").get("temp").get("min"));
     }
     public void buildFoliageHash(){
         //Build cacti now
@@ -179,6 +182,5 @@ public class ViewPlant extends AppCompatActivity {
         tmpFoloral.put("soil", tmpSoil);
 
         levels.put("Foliage", tmpFoloral);
-        System.out.println("HEHHE: " + levels.get("Foliage").get("temp").get("min"));
     }
 }
