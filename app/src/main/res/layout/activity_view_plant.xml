@@ -10,6 +10,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.oscarmeanwell.mrplantfin.ViewPlant">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:id="@+id/headertxt1"
+            android:textSize="25dp"
+            android:paddingTop="10dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:paddingTop="5dp">
 
     <TextView
         android:text="Temperature:"
@@ -18,9 +38,8 @@
         android:layout_marginTop="34dp"
         android:textSize="20dp"
         android:gravity="center_vertical"
-        android:id="@+id/textView3"
+        android:id="@+id/txtTemp"
         android:layout_alignParentTop="true"
-        android:background="#008000"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -30,9 +49,9 @@
         android:layout_marginTop="15dp"
         android:textSize="20dp"
         android:gravity="center_vertical"
-        android:id="@+id/textView4"
-        android:background="#FF0000"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/txtHum"
+
+        android:layout_below="@+id/txtTemp"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -42,8 +61,21 @@
         android:layout_marginTop="28dp"
         android:textSize="20dp"
         android:gravity="center_vertical"
-        android:id="@+id/textView2"
-        android:background="#0000FF"
-        android:layout_below="@+id/textView4"
+        android:id="@+id/txtSoil"
+
+        android:layout_below="@+id/txtHum"
         android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastUpdated"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="10dp"
+            android:text="Hello"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+
 </RelativeLayout>

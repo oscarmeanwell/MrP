@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Development call wont be in actual
+        //begin
+        Intent intent = new Intent(this, ViewPlant.class);
+        startActivity(intent);
+        //end
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        new Handler().postDelayed(new Runnable() {
+        /*new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent welcome = new Intent(MainActivity.this, Tutorial.class);
@@ -58,6 +63,7 @@ public class MainActivity extends AppCompatActivity
                 finish();
             }
         }, WELCOME_TIMEOUT);
+        */
     }
 
     @Override
