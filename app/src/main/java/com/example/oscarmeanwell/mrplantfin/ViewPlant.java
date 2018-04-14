@@ -115,6 +115,7 @@ public class ViewPlant extends AppCompatActivity {
         buildCactiHash();
         buildFloralHash();
         buildFoliageHash();
+        buildlowlightHash();
     }
 
     public void buildCactiHash(){
@@ -183,4 +184,29 @@ public class ViewPlant extends AppCompatActivity {
 
         levels.put("Foliage", tmpFoloral);
     }
+
+    public void buildlowlightHash(){
+        //Build cacti now
+        HashMap<String, HashMap<String, Double>> tmpLowLight = new HashMap<>();
+        //Build Temp
+        HashMap<String, Double> tmpTemp = new HashMap<>();
+        tmpTemp.put("min", 0.0);
+        tmpTemp.put("ideal", 10.0);
+        tmpTemp.put("max", 20.0);
+        tmpLowLight.put("temp", tmpTemp);
+        HashMap<String, Double> tmpHum = new HashMap<>();
+        tmpHum.put("min", 2.0);
+        tmpHum.put("ideal", 40.0);
+        tmpHum.put("max", 80.0);
+        tmpLowLight.put("hum", tmpHum);
+        HashMap<String, Double> tmpSoil = new HashMap<>();
+        tmpSoil.put("min", 0.0);
+        tmpSoil.put("ideal", 10.0);
+        tmpSoil.put("max", 20.0);
+        tmpLowLight.put("soil", tmpSoil);
+
+        levels.put("Low Light", tmpLowLight);
+    }
+
+
 }
