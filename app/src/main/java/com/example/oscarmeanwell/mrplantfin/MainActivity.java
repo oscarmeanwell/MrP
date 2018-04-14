@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
         //Development call wont be in actual
         //begin
-        Intent intent = new Intent(this, ViewPlant.class);
+        Intent intent = new Intent(this, SelectPlant.class);
         startActivity(intent);
         //end
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

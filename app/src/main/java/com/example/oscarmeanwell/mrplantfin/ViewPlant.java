@@ -19,9 +19,11 @@ public class ViewPlant extends AppCompatActivity {
     double temp;
     double hum;
     double soil;
-
+    String plantType;
+    HashMap<String, HashMap<String, HashMap<String, Double>>> levels = new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        buildHash();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_plant);
         //Assign the text views
@@ -46,7 +48,9 @@ public class ViewPlant extends AppCompatActivity {
         setTemperatureColor();
         setHumidityColor();
         setSoilHumidityColor();
-        txtHeader.setText("Cacti Levels");
+
+        plantType = getIntent().getStringExtra("plant");
+        txtHeader.setText(plantType + " Levels");
 
     }
 
@@ -90,5 +94,80 @@ public class ViewPlant extends AppCompatActivity {
         else{
             txtSoil.setBackgroundColor(Color.parseColor("#FF0000"));
         }
+    }
+
+    public void buildHash(){
+        buildCactiHash();
+        buildFloralHash();
+        buildFoliageHash();
+    }
+
+    public void buildCactiHash(){
+        //Build cacti now
+        HashMap<String, HashMap<String, Double>> tmpCacti = new HashMap<>();
+        //Build Temp
+        HashMap<String, Double> tmpCactiTemp = new HashMap<>();
+        tmpCactiTemp.put("min", 0.0);
+        tmpCactiTemp.put("ideal", 10.0);
+        tmpCactiTemp.put("max", 20.0);
+        tmpCacti.put("temp", tmpCactiTemp);
+        HashMap<String, Double> tmpCactiHum = new HashMap<>();
+        tmpCactiHum.put("min", 2.0);
+        tmpCactiHum.put("ideal", 40.0);
+        tmpCactiHum.put("max", 80.0);
+        tmpCacti.put("hum", tmpCactiHum);
+        HashMap<String, Double> tmpCactiSoil = new HashMap<>();
+        tmpCactiSoil.put("min", 0.0);
+        tmpCactiSoil.put("ideal", 10.0);
+        tmpCactiSoil.put("max", 20.0);
+        tmpCacti.put("soil", tmpCactiSoil);
+        levels.put("cacti", tmpCacti);
+        System.out.println("HEHHE: " + levels.get("cacti").get("temp").get("min"));
+    }
+    public void buildFloralHash(){
+        //Build cacti now
+        HashMap<String, HashMap<String, Double>> tmpFoloral = new HashMap<>();
+        //Build Temp
+        HashMap<String, Double> tmpTemp = new HashMap<>();
+        tmpTemp.put("min", 0.0);
+        tmpTemp.put("ideal", 10.0);
+        tmpTemp.put("max", 20.0);
+        tmpFoloral.put("temp", tmpTemp);
+        HashMap<String, Double> tmpHum = new HashMap<>();
+        tmpHum.put("min", 2.0);
+        tmpHum.put("ideal", 40.0);
+        tmpHum.put("max", 80.0);
+        tmpFoloral.put("hum", tmpHum);
+        HashMap<String, Double> tmpSoil = new HashMap<>();
+        tmpSoil.put("min", 0.0);
+        tmpSoil.put("ideal", 10.0);
+        tmpSoil.put("max", 20.0);
+        tmpFoloral.put("soil", tmpSoil);
+
+        levels.put("Floral", tmpFoloral);
+        System.out.println("HEHHE: " + levels.get("Floral").get("temp").get("min"));
+    }
+    public void buildFoliageHash(){
+        //Build cacti now
+        HashMap<String, HashMap<String, Double>> tmpFoloral = new HashMap<>();
+        //Build Temp
+        HashMap<String, Double> tmpTemp = new HashMap<>();
+        tmpTemp.put("min", 0.0);
+        tmpTemp.put("ideal", 10.0);
+        tmpTemp.put("max", 20.0);
+        tmpFoloral.put("temp", tmpTemp);
+        HashMap<String, Double> tmpHum = new HashMap<>();
+        tmpHum.put("min", 2.0);
+        tmpHum.put("ideal", 40.0);
+        tmpHum.put("max", 80.0);
+        tmpFoloral.put("hum", tmpHum);
+        HashMap<String, Double> tmpSoil = new HashMap<>();
+        tmpSoil.put("min", 0.0);
+        tmpSoil.put("ideal", 10.0);
+        tmpSoil.put("max", 20.0);
+        tmpFoloral.put("soil", tmpSoil);
+
+        levels.put("Foliage", tmpFoloral);
+        System.out.println("HEHHE: " + levels.get("Foliage").get("temp").get("min"));
     }
 }

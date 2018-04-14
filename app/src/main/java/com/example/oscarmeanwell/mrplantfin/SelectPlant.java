@@ -15,6 +15,7 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class SelectPlant extends AppCompatActivity
          {
@@ -24,8 +25,46 @@ public class SelectPlant extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setTitle("Mr Plant");
-
         setContentView(R.layout.activity_select_plant);
+        final Button floral = (Button)findViewById(R.id.floral);
+        final Button cacti = (Button)findViewById(R.id.cacti);
+        final Button lowlight = (Button)findViewById(R.id.lowlight);
+        final Button foil = (Button)findViewById(R.id.foliage);
+
+        floral.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
+                intent.putExtra("plant", "floral");
+                startActivity(intent);
+            }
+        });
+
+        cacti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
+                intent.putExtra("plant", "cacti");
+                startActivity(intent);
+            }
+        });
+
+        lowlight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
+                intent.putExtra("plant", "lowlight");
+                startActivity(intent);
+            }
+        });
+        foil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectPlant.this, ViewPlant.class);
+                intent.putExtra("plant", "foliage");
+                startActivity(intent);
+            }
+        });
 /*
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
