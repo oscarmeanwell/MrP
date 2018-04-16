@@ -28,7 +28,6 @@ public class Help extends AppCompatActivity {
         Double smm = ViewPlant.levels.get(plant).get("soil").get("max");
         Double si = ViewPlant.levels.get(plant).get("soil").get("ideal");
 
-
         String Temp = plant + " Temperature" + System.lineSeparator()
                 + "\t\tMin: " + tm.toString() + System.lineSeparator()
                 + "\t\tMax: " + tmm.toString() + System.lineSeparator()
