@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -15,7 +14,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="#0CFF97"
-
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.oscarmeanwell.mrplantfin.Help">
 
@@ -43,9 +41,5 @@
         android:id="@+id/txtSh"
         android:gravity="center"
         android:layout_below="@id/txtShow"/>
-
-
-
-
 </RelativeLayout>
 </ScrollView>
