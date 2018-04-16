@@ -32,17 +32,17 @@ public class Help extends AppCompatActivity {
 
 
         String Temp = getIntent().getStringExtra("type") + " Temperature" + System.lineSeparator()
-                + "\tMin: " + tm.toString() + System.lineSeparator()
-                + "\tMax: " + tmm.toString() + System.lineSeparator()
-                + "\tIdeal: "  + ((Double) (ti-5)).toString() + " - " + ((Double) (ti+5)).toString() + System.lineSeparator() + System.lineSeparator()
+                + "\t\tMin: " + tm.toString() + System.lineSeparator()
+                + "\t\tMax: " + tmm.toString() + System.lineSeparator()
+                + "\t\tIdeal: "  + ((Double) (ti-5)).toString() + " - " + ((Double) (ti+5)).toString() + System.lineSeparator() + System.lineSeparator()
                 +  getIntent().getStringExtra("type") + " Humidity" + System.lineSeparator()
-                + "\tMin: " + hm.toString() + System.lineSeparator()
-                + "\tMax: " + hmm.toString() + System.lineSeparator()
-                + "\tIdeal: "  + ((Double) (hi-5)).toString() + " - " + ((Double) (hi+5)).toString() + System.lineSeparator() + System.lineSeparator()
+                + "\t\tMin: " + hm.toString() + System.lineSeparator()
+                + "\t\tMax: " + hmm.toString() + System.lineSeparator()
+                + "\t\tIdeal: "  + ((Double) (hi-5)).toString() + " - " + ((Double) (hi+5)).toString() + System.lineSeparator() + System.lineSeparator()
                 +  getIntent().getStringExtra("type") + " Soil Humidity" + System.lineSeparator()
-                + "\tMin: " + sm.toString() + System.lineSeparator()
-                + "\tMax: " + smm.toString() + System.lineSeparator()
-                + "\tIdeal: "  + ((Double) (si-5)).toString() + " - " + ((Double) (si+5)).toString() + System.lineSeparator() + System.lineSeparator()
+                + "\t\tMin: " + sm.toString() + System.lineSeparator()
+                + "\t\tMax: " + smm.toString() + System.lineSeparator()
+                + "\t\tIdeal: "  + ((Double) (si-5)).toString() + " - " + ((Double) (si+5)).toString() + System.lineSeparator() + System.lineSeparator()
                 ;
 
         content.setText(Temp);
