@@ -33,7 +33,7 @@
             android:id="@+id/cacti"
             android:layout_width="139dp"
             android:layout_height="166dp"
-            android:background="@drawable/cactuss"
+            android:background="@drawable/cacti"
             />
 
         <Space
