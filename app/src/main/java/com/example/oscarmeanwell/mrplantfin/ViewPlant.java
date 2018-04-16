@@ -1,8 +1,11 @@
 package com.example.oscarmeanwell.mrplantfin;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -49,6 +52,15 @@ public class ViewPlant extends AppCompatActivity {
             }
         });
 
+        //Water Your plant Notification
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+                mBuilder.setSmallIcon(R.mipmap.ic_launcher_foreground);
+                mBuilder.setContentTitle("Mr. Plant");
+                mBuilder.setContentText("Water your plant!");
+                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(1, mBuilder.build());
+        
     }
     public void getRefresh(){
         HashMap<String, String> data = new GetServerData().GetServerDataNow();
