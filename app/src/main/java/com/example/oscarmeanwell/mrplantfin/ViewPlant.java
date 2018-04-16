@@ -2,6 +2,7 @@ package com.example.oscarmeanwell.mrplantfin;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,12 +22,14 @@ public class ViewPlant extends AppCompatActivity {
     TextView txtSoil;
     TextView txtHeader;
     TextView txtUpdate;
-    Button btn;
+    Button btn, help;
     double temp;
     double hum;
     double soil;
+    public static String oldPlant = "";
+    public static int flag = 0;
     String plantType;
-    HashMap<String, HashMap<String, HashMap<String, Double>>> levels = new HashMap<>();
+    public static HashMap<String, HashMap<String, HashMap<String, Double>>> levels = new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         buildHash();
@@ -39,9 +42,17 @@ public class ViewPlant extends AppCompatActivity {
         txtHeader = (TextView)findViewById(R.id.headertxt1);
         txtUpdate = (TextView)findViewById(R.id.lastUpdated);
         btn = (Button)findViewById(R.id.btn);
+        help = (Button)findViewById(R.id.btnHelp);
         //get data from server
 
-        plantType = getIntent().getStringExtra("plant");
+        if (flag == 0){
+            plantType = getIntent().getStringExtra("plant");
+        }else{
+            flag = 0;
+            plantType = oldPlant;
+            oldPlant = "";
+        }
+
         getRefresh();
         txtHeader.setText(plantType + " Levels");
 
@@ -52,15 +63,29 @@ public class ViewPlant extends AppCompatActivity {
             }
         });
 
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Help button pressed
+                flag = 1;
+                oldPlant = plantType;
+                startActivity(new Intent(ViewPlant.this, Help.class).putExtra("type", plantType));
+            }
+        });
         //Water Your plant Notification
+        issueWarning("Water your plant!");
+
+
+    }
+
+    public void issueWarning(String message){
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-                mBuilder.setSmallIcon(R.mipmap.ic_launcher_foreground);
-                mBuilder.setContentTitle("Mr. Plant");
-                mBuilder.setContentText("Water your plant!");
-                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher_foreground);
+        mBuilder.setContentTitle("Mr. Plant");
+        mBuilder.setContentText(message);
+        mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(1, mBuilder.build());
-        
     }
     public void getRefresh(){
         HashMap<String, String> data = new GetServerData().GetServerDataNow();

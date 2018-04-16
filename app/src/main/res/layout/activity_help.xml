@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_help"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="#0CFF97"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.oscarmeanwell.mrplantfin.Help">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleq"
+        android:text="hello"
+        android:textSize="25dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The levels for Temperature, Moisture, and Soil Moisture are shown on the previous page. A traffic light system is used to show how your plant is doing, red been bad, amber been ok, and green been good. You should aim to keep you plant always green to ensure optimum health\n\nThe Refresh button simply pulls data fresh from your plant, press the refresh button if you want to check your plants health immediately.\n\nThe last updated text shows the time and date when data was last pulled from your plant, this process isnt intenisve or slow so press refresh any time you want to update. The system will periodically pull data every 15 minuites.\n\nThe below shows how your plants health is calculated."
+        android:paddingTop="20dp"
+        android:textSize="18dp"
+        android:id="@+id/txtSh"
+        android:gravity="center"
+        android:layout_below="@id/titleq"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtShow"
+        android:paddingTop="10dp"
+        android:textSize="15dp"
+        android:layout_below="@id/txtSh"/>
+
+</RelativeLayout>

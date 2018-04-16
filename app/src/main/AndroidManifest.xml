@@ -22,12 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Tutorial"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".SelectPlant"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ViewPlant"
-            android:parentActivityName=".SelectPlant"></activity>
+        <activity
+            android:name=".Tutorial"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SelectPlant"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ViewPlant"
+            android:parentActivityName=".SelectPlant" />
+        <activity android:name=".Help"
+            android:parentActivityName=".ViewPlant"></activity>
     </application>
 
 </manifest>

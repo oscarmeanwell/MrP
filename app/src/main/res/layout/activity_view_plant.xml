@@ -82,6 +82,14 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/btn"
             android:text="Refresh"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btnHelp"
+            android:layout_alignEnd="@id/lastUpdated"
+            android:text="\?"/>
     </RelativeLayout>
 
 
