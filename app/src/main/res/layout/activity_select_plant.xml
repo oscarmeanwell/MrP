@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingTop="20dp"
+        android:paddingTop="40dp"
 
         >
         <Space
@@ -62,21 +62,30 @@
         android:gravity="center_vertical"
         android:paddingTop="10dp"
         >
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
         <TextView
         android:layout_width="165dp"
             android:gravity="center"
         android:layout_height="wrap_content"
         android:text="Cacti"
-            android:layout_weight="1.52"/>
-
+            />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
         <TextView
             android:layout_width="165dp"
             android:layout_height="wrap_content"
             android:text="Floral"
             android:gravity="center"
-            android:layout_weight="1"/>
-
+            />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
 
     </LinearLayout>
@@ -95,7 +104,7 @@
             android:layout_width="139dp"
             android:layout_height="166dp"
             android:background="@drawable/potplantcliparttransparent18"
-            android:layout_alignRight="@id/lowlight"
+
             />
         <Space
             android:layout_width="wrap_content"
@@ -119,22 +128,31 @@
         android:gravity="center_vertical"
         android:paddingTop="10dp"
         >
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
         <TextView
             android:layout_width="165dp"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="Foliage"
-            android:layout_weight="1.52"/>
-
+            />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
         <TextView
             android:layout_width="165dp"
             android:layout_height="wrap_content"
             android:text="Low Light"
             android:gravity="center"
-            android:layout_weight="1"/>
+            />
 
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
