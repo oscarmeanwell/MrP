@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/titleq"
         android:text="hello"
+        android:textColor="#E8AD0C"
         android:textSize="25dp"
         android:gravity="center"/>
     <TextView
