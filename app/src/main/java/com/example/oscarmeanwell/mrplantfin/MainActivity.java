@@ -1,5 +1,8 @@
 package com.example.oscarmeanwell.mrplantfin;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 
@@ -27,9 +31,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         super.setTitle("Mr Plant");
         setContentView(R.layout.activity_main);
-        HashMap<String, String> data = new GetServerData().GetServerDataNow();
-        System.out.println("TEMP IS: " + data.get("temp"));
 
+
+
+
+        HashMap<String, String> data = new GetServerData().GetServerDataNow();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

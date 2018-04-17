@@ -73,8 +73,10 @@ public class ViewPlant extends AppCompatActivity {
             }
         });
         //Water Your plant Notification
-        issueWarning("Water your plant!");
+        //issueWarning("Water your plant!");
 
+
+        startService(new Intent(this, Notifier.class));
 
     }
 
