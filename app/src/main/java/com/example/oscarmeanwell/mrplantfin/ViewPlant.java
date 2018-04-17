@@ -90,14 +90,21 @@ public class ViewPlant extends AppCompatActivity {
     public void getRefresh(){
         HashMap<String, String> data = new GetServerData().GetServerDataNow();
         //set int variables
-        temp = Double.parseDouble(data.get("temp"));
-        hum = Double.parseDouble(data.get("room_humidity"));
-        soil = Double.parseDouble(data.get("humidity"));
+        try{
+            temp = Double.parseDouble(data.get("temp"));
+            hum = Double.parseDouble(data.get("room_humidity"));
+            soil = Double.parseDouble(data.get("humidity"));
+            txtUpdate.setText("Last updated: " + data.get("datetime").toString());
+        }catch (Exception e){
+            temp = 0;
+            hum = 0;
+            soil = 0;
+        }
         //Set textViews content
         txtTemp.setText("Temperature: " + temp);
         txtHum.setText("Humidity: " + hum);
         txtSoil.setText("Soil Humidity: " + soil);
-        txtUpdate.setText("Last updated: " + data.get("datetime").toString());
+
         //this will look at hardcoded values
         setTemperatureColor();
         setHumidityColor();
@@ -160,19 +167,19 @@ public class ViewPlant extends AppCompatActivity {
         HashMap<String, HashMap<String, Double>> tmpCacti = new HashMap<>();
         //Build Temp
         HashMap<String, Double> tmpCactiTemp = new HashMap<>();
-        tmpCactiTemp.put("min", 0.0);
-        tmpCactiTemp.put("ideal", 20.0);
-        tmpCactiTemp.put("max", 30.0);
+        tmpCactiTemp.put("min", 7.0);
+        tmpCactiTemp.put("ideal", 40.0);
+        tmpCactiTemp.put("max", 50.0);
         tmpCacti.put("temp", tmpCactiTemp);
         HashMap<String, Double> tmpCactiHum = new HashMap<>();
-        tmpCactiHum.put("min", 2.0);
-        tmpCactiHum.put("ideal", 40.0);
-        tmpCactiHum.put("max", 80.0);
+        tmpCactiHum.put("min", 15.0);
+        tmpCactiHum.put("ideal", 25.0);
+        tmpCactiHum.put("max", 50.0);
         tmpCacti.put("hum", tmpCactiHum);
         HashMap<String, Double> tmpCactiSoil = new HashMap<>();
-        tmpCactiSoil.put("min", 0.0);
-        tmpCactiSoil.put("ideal", 10.0);
-        tmpCactiSoil.put("max", 20.0);
+        tmpCactiSoil.put("min", 100.0);
+        tmpCactiSoil.put("ideal", 120.0);
+        tmpCactiSoil.put("max", 150.0);
         tmpCacti.put("soil", tmpCactiSoil);
         levels.put("Cacti", tmpCacti);
     }
@@ -181,19 +188,19 @@ public class ViewPlant extends AppCompatActivity {
         HashMap<String, HashMap<String, Double>> tmpFoloral = new HashMap<>();
         //Build Temp
         HashMap<String, Double> tmpTemp = new HashMap<>();
-        tmpTemp.put("min", 0.0);
-        tmpTemp.put("ideal", 10.0);
+        tmpTemp.put("min", 2.0);
+        tmpTemp.put("ideal", 13.0);
         tmpTemp.put("max", 20.0);
         tmpFoloral.put("temp", tmpTemp);
         HashMap<String, Double> tmpHum = new HashMap<>();
-        tmpHum.put("min", 2.0);
-        tmpHum.put("ideal", 40.0);
-        tmpHum.put("max", 80.0);
+        tmpHum.put("min", 20.0);
+        tmpHum.put("ideal", 30.0);
+        tmpHum.put("max", 40.0);
         tmpFoloral.put("hum", tmpHum);
         HashMap<String, Double> tmpSoil = new HashMap<>();
-        tmpSoil.put("min", 0.0);
-        tmpSoil.put("ideal", 10.0);
-        tmpSoil.put("max", 20.0);
+        tmpSoil.put("min", 120.0);
+        tmpSoil.put("ideal", 180.0);
+        tmpSoil.put("max", 220.0);
         tmpFoloral.put("soil", tmpSoil);
 
         levels.put("Floral", tmpFoloral);
@@ -204,19 +211,19 @@ public class ViewPlant extends AppCompatActivity {
         HashMap<String, HashMap<String, Double>> tmpFoloral = new HashMap<>();
         //Build Temp
         HashMap<String, Double> tmpTemp = new HashMap<>();
-        tmpTemp.put("min", 0.0);
+        tmpTemp.put("min", 1.0);
         tmpTemp.put("ideal", 10.0);
-        tmpTemp.put("max", 20.0);
+        tmpTemp.put("max", 15.0);
         tmpFoloral.put("temp", tmpTemp);
         HashMap<String, Double> tmpHum = new HashMap<>();
-        tmpHum.put("min", 2.0);
-        tmpHum.put("ideal", 40.0);
-        tmpHum.put("max", 80.0);
+        tmpHum.put("min", 20.0);
+        tmpHum.put("ideal", 25.0);
+        tmpHum.put("max", 30.0);
         tmpFoloral.put("hum", tmpHum);
         HashMap<String, Double> tmpSoil = new HashMap<>();
-        tmpSoil.put("min", 0.0);
-        tmpSoil.put("ideal", 10.0);
-        tmpSoil.put("max", 20.0);
+        tmpSoil.put("min", 100.0);
+        tmpSoil.put("ideal", 150.0);
+        tmpSoil.put("max", 200.0);
         tmpFoloral.put("soil", tmpSoil);
 
         levels.put("Foliage", tmpFoloral);
@@ -227,19 +234,19 @@ public class ViewPlant extends AppCompatActivity {
         HashMap<String, HashMap<String, Double>> tmpLowLight = new HashMap<>();
         //Build Temp
         HashMap<String, Double> tmpTemp = new HashMap<>();
-        tmpTemp.put("min", 0.0);
+        tmpTemp.put("min", 5.0);
         tmpTemp.put("ideal", 10.0);
         tmpTemp.put("max", 20.0);
         tmpLowLight.put("temp", tmpTemp);
         HashMap<String, Double> tmpHum = new HashMap<>();
-        tmpHum.put("min", 2.0);
-        tmpHum.put("ideal", 40.0);
-        tmpHum.put("max", 80.0);
+        tmpHum.put("min", 15.0);
+        tmpHum.put("ideal", 25.0);
+        tmpHum.put("max", 30.0);
         tmpLowLight.put("hum", tmpHum);
         HashMap<String, Double> tmpSoil = new HashMap<>();
-        tmpSoil.put("min", 0.0);
-        tmpSoil.put("ideal", 10.0);
-        tmpSoil.put("max", 20.0);
+        tmpSoil.put("min", 100.0);
+        tmpSoil.put("ideal", 150.0);
+        tmpSoil.put("max", 200.0);
         tmpLowLight.put("soil", tmpSoil);
 
         levels.put("Low Light", tmpLowLight);

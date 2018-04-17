@@ -31,8 +31,14 @@
         <activity
             android:name=".ViewPlant"
             android:parentActivityName=".SelectPlant" />
-        <activity android:name=".Help"
-            android:parentActivityName=".ViewPlant"></activity>
+        <activity
+            android:name=".Help"
+            android:parentActivityName=".ViewPlant" />
+
+        <service
+            android:name=".Notifier"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
