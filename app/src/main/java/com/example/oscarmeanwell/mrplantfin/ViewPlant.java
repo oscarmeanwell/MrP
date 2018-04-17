@@ -144,11 +144,11 @@ public class ViewPlant extends AppCompatActivity {
     }
 
     public void setSoilHumidityColor(){
-        if (soil > levels.get(plantType).get("soil").get("ideal")-5.0 && hum < levels.get(plantType).get("soil").get("ideal")+5.0){
+        if (soil > levels.get(plantType).get("soil").get("ideal")-5.0 && soil < levels.get(plantType).get("soil").get("ideal")+5.0){
             //This is green so ideal temperature conditions
             txtSoil.setBackgroundColor(Color.parseColor("#008000"));
         }
-        else if (soil > levels.get(plantType).get("soil").get("ideal") && hum < levels.get(plantType).get("soil").get("ideal")){
+        else if (soil > levels.get(plantType).get("soil").get("min") && soil < levels.get(plantType).get("soil").get("max")){
             //This is amber
             txtSoil.setBackgroundColor(Color.parseColor("#FFC200"));
         }
