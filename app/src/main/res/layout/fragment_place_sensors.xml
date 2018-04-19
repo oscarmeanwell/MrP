@@ -19,11 +19,13 @@
         android:layout_below="@id/txt1"
         android:padding="20dp"
         android:gravity="center"
+        android:id="@+id/txt2"
         android:text="There's an LED light that helps you track the status of your plants soil. Heres how it works."/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:layout_below="@id/txt2"
         android:src="@drawable/ledkey"
         android:id="@+id/LEDtxt"/>
     
