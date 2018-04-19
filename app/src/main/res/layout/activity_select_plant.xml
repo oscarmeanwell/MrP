@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0CFF97"
+    android:background="#ffffb7"
     android:columnCount="1"
 
     tools:context="com.example.oscarmeanwell.mrplantfin.SelectPlant">
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingTop="40dp"
+        android:paddingTop="10dp"
 
         >
         <Space
@@ -34,8 +34,7 @@
             android:id="@+id/cacti"
             android:layout_width="139dp"
             android:layout_height="166dp"
-            android:background="@drawable/cacti"
-            />
+            android:background="@drawable/cacti" />
 
         <Space
             android:layout_width="wrap_content"
@@ -61,7 +60,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         >
         <Space
             android:layout_width="wrap_content"
@@ -107,6 +106,7 @@
             android:background="@drawable/potplantcliparttransparent18"
 
             />
+
         <Space
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
