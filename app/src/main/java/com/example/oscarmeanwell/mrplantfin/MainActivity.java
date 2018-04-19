@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         super.setTitle("Mr Plant");
         setContentView(R.layout.activity_main);
-
-
+        ViewPlant.buildHash();
+        startService(new Intent(this, Notifier.class));
 
 
         HashMap<String, String> data = new GetServerData().GetServerDataNow();

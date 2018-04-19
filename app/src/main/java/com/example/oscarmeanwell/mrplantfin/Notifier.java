@@ -52,7 +52,7 @@ public class Notifier extends Service {
                 Double temp = Double.parseDouble(data.get("temp"));
                 Double hum = Double.parseDouble(data.get("room_humidity"));
                 Double soil = Double.parseDouble(data.get("humidity"));
-
+                Double light = Double.parseDouble(data.get("light"));
                 if(temp < ViewPlant.levels.get(type).get("temp").get("min")) {
                     //issue temperature warning to cold
                     issueWarning("Your plant is to cold!");
@@ -77,6 +77,17 @@ public class Notifier extends Service {
                 else if (soil > ViewPlant.levels.get(type).get("soil").get("max")) {
                     //Your plant needs dryer soil
                     issueWarning("Your plant is drowning!");
+                }
+                if (Integer.parseInt(data.get("datetime").toString().substring(11,13)) > 7
+                        && Integer.parseInt(data.get("datetime").toString().substring(11,13)) < 20) {
+                    if(light < ViewPlant.levels.get(type).get("light").get("min")) {
+                        //issue temperature warning to cold
+                        issueWarning("Your plant is surrounded by darkness!");
+                    }
+                    else if (light > ViewPlant.levels.get(type).get("light").get("max")){
+                        //issue temp to hot
+                        issueWarning("Your plant needs less light!");
+                    }
                 }
                 handler.postDelayed(this, 30000); //now is every 15 minutes
             }
