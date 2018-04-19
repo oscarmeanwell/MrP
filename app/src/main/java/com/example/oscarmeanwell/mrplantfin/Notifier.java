@@ -36,62 +36,67 @@ public class Notifier extends Service {
         }catch (Exception e){
             ;
         }
-
+        final String finalLine2 = checkNot();
         final String finalLine = line;
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                System.out.println("STARTED");
-                //read from file default plant type
-                String type = "";
-                if (finalLine.equals("")){
-                    type = "Cacti";
-                }else{
-                    type = finalLine;
-                }
-                HashMap<String, String> data = new GetServerData().GetServerDataNow();
-                Double temp = Double.parseDouble(data.get("temp"));
-                Double hum = Double.parseDouble(data.get("room_humidity"));
-                Double soil = Double.parseDouble(data.get("humidity"));
-                Double light = Double.parseDouble(data.get("light"));
-                if(temp < ViewPlant.levels.get(type).get("temp").get("min")) {
-                    //issue temperature warning to cold
-                    issueWarning("Your plant is to cold!");
-                }
-                else if (temp > ViewPlant.levels.get(type).get("temp").get("max")){
-                    //issue temp to hot
-                    issueWarning("Your plant is to hot!");
-                }
+        if(finalLine2.toString().equals("1")){
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    if (checkNot().equals("1")){
+                        System.out.println("STARTED");
+                        //read from file default plant type
+                        String type = "";
+                        if (finalLine.equals("")){
+                            type = "Cacti";
+                        }else{
+                            type = finalLine;
+                        }
+                        HashMap<String, String> data = new GetServerData().GetServerDataNow();
+                        Double temp = Double.parseDouble(data.get("temp"));
+                        Double hum = Double.parseDouble(data.get("room_humidity"));
+                        Double soil = Double.parseDouble(data.get("humidity"));
+                        Double light = Double.parseDouble(data.get("light"));
+                        if(temp < ViewPlant.levels.get(type).get("temp").get("min")) {
+                            //issue temperature warning to cold
+                            issueWarning("Your plant is to cold!");
+                        }
+                        else if (temp > ViewPlant.levels.get(type).get("temp").get("max")){
+                            //issue temp to hot
+                            issueWarning("Your plant is to hot!");
+                        }
 
-                if (hum < ViewPlant.levels.get(type).get("hum").get("min")){
-                    //Your plant needs more humidity!
-                    issueWarning("Your plant needs more humidity!");
-                }
-                else if (hum > ViewPlant.levels.get(type).get("hum").get("max")){
-                    //Your plant needs less humidity!
-                    issueWarning("Your plant needs less humidity!");
-                }
-                if (soil < ViewPlant.levels.get(type).get("soil").get("min")){
-                    //Your plant needs more water
-                    issueWarning("Your plant needs more water!");
-                }
-                else if (soil > ViewPlant.levels.get(type).get("soil").get("max")) {
-                    //Your plant needs dryer soil
-                    issueWarning("Your plant is drowning!");
-                }
-                if (Integer.parseInt(data.get("datetime").toString().substring(11,13)) > 7
-                        && Integer.parseInt(data.get("datetime").toString().substring(11,13)) < 20) {
-                    if(light < ViewPlant.levels.get(type).get("light").get("min")) {
-                        //issue temperature warning to cold
-                        issueWarning("Your plant is surrounded by darkness!");
+                        if (hum < ViewPlant.levels.get(type).get("hum").get("min")){
+                            //Your plant needs more humidity!
+                            issueWarning("Your plant needs more humidity!");
+                        }
+                        else if (hum > ViewPlant.levels.get(type).get("hum").get("max")){
+                            //Your plant needs less humidity!
+                            issueWarning("Your plant needs less humidity!");
+                        }
+                        if (soil < ViewPlant.levels.get(type).get("soil").get("min")){
+                            //Your plant needs more water
+                            issueWarning("Your plant needs more water!");
+                        }
+                        else if (soil > ViewPlant.levels.get(type).get("soil").get("max")) {
+                            //Your plant needs dryer soil
+                            issueWarning("Your plant is drowning!");
+                        }
+                        if (Integer.parseInt(data.get("datetime").toString().substring(11,13)) > 7
+                                && Integer.parseInt(data.get("datetime").toString().substring(11,13)) < 20) {
+                            if(light < ViewPlant.levels.get(type).get("light").get("min")) {
+                                //issue temperature warning to cold
+                                issueWarning("Your plant is surrounded by darkness!");
+                            }
+                            else if (light > ViewPlant.levels.get(type).get("light").get("max")){
+                                //issue temp to hot
+                                issueWarning("Your plant needs less light!");
+                            }
+                        }
+                        handler.postDelayed(this, 30000);
                     }
-                    else if (light > ViewPlant.levels.get(type).get("light").get("max")){
-                        //issue temp to hot
-                        issueWarning("Your plant needs less light!");
-                    }
+                     //now is every 15 minutes
                 }
-                handler.postDelayed(this, 30000); //now is every 15 minutes
-            }
-        }, 0);
+            }, 0);
+        }
         return START_STICKY;
     }
 
@@ -103,5 +108,19 @@ public class Notifier extends Service {
         mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(1, mBuilder.build());
+    }
+
+    public String checkNot(){
+        String line2 = "";
+        try {
+            FileInputStream br = openFileInput("not.txt");
+            int x;
+            while ((x = br.read()) != -1) {
+                line2 = line2 + Character.toString((char) x);
+            }
+        }catch (Exception e){
+            ;
+        }
+        return line2;
     }
 }
