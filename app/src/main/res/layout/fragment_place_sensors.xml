@@ -4,18 +4,27 @@
     android:layout_height="match_parent"
     tools:context="com.example.oscarmeanwell.mrplant3.PlaceSensors">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Place the soil sensor in the plant pot, make sure it on!"
+        android:gravity="center"
+        android:padding="20dp"
+        android:id="@+id/txt1"
+        android:paddingTop="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please plug in your Arduino and connect your sensors"
+        android:layout_below="@id/txt1"
+        android:padding="20dp"
         android:gravity="center"
-        android:paddingTop="15dp"/>
+        android:text="There's an LED light that helps you track the status of your plants soil. Heres how it works."/>
 
     <ImageView
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        android:id="@+id/imgview"
-        android:src="@drawable/ard"/>
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src=""
+        android:id="@+id/LEDtxt"/>
+    
 </RelativeLayout>
