@@ -23,6 +23,7 @@ public class ViewPlant extends AppCompatActivity {
     TextView txtHeader;
     TextView txtUpdate;
     Button btn, help;
+    TextView txtLight;
     double temp;
     double hum;
     double soil;
@@ -41,6 +42,7 @@ public class ViewPlant extends AppCompatActivity {
         txtSoil = (TextView)findViewById(R.id.txtSoil);
         txtHeader = (TextView)findViewById(R.id.headertxt1);
         txtUpdate = (TextView)findViewById(R.id.lastUpdated);
+        txtLight = (TextView)findViewById(R.id.txtlight);
         btn = (Button)findViewById(R.id.btn);
         help = (Button)findViewById(R.id.btnHelp);
         //get data from server
@@ -106,7 +108,7 @@ public class ViewPlant extends AppCompatActivity {
         txtTemp.setText("Temperature: " + temp);
         txtHum.setText("Humidity: " + hum);
         txtSoil.setText("Soil Humidity: " + soil);
-
+        txtLight.setText("Light: " + data.get("Light"));
         //this will look at hardcoded values
         setTemperatureColor();
         setHumidityColor();

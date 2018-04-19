@@ -73,6 +73,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Light:"
+            android:id="@+id/txtlight"
+            android:textSize="20dp"
+            android:paddingTop="34dp"
+            android:layout_below="@id/txtSoil"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/lastUpdated"
             android:layout_alignParentBottom="true"
             android:paddingBottom="10dp"
