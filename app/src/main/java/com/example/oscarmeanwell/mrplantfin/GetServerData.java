@@ -1,5 +1,6 @@
 package com.example.oscarmeanwell.mrplantfin;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.StrictMode;
 import android.support.annotation.RequiresApi;
@@ -44,6 +45,14 @@ public class GetServerData extends HashMap<String, String> {
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/data/user/0/com.example.oscarmeanwell.mrplantfin/files/temp.txt", true)));
             out.print(data.get("temp").toString()+",");
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+            System.out.println("FAiled");
+        }
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/data/user/0/com.example.oscarmeanwell.mrplantfin/files/soil.txt", true)));
+            out.print(data.get("humidity").toString()+",");
             out.close();
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
