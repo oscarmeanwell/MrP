@@ -27,6 +27,7 @@ public class ViewPlant extends AppCompatActivity {
     double temp;
     double hum;
     double soil;
+    double light;
     public static String oldPlant = "";
     public static int flag = 0;
     String plantType;
@@ -96,6 +97,7 @@ public class ViewPlant extends AppCompatActivity {
         //set int variables
         try{
             temp = Double.parseDouble(data.get("temp"));
+            light = Double.parseDouble(data.get("light"));
             hum = Double.parseDouble(data.get("room_humidity"));
             soil = Double.parseDouble(data.get("humidity"));
             txtUpdate.setText("Last updated: " + data.get("datetime").toString());
@@ -108,11 +110,12 @@ public class ViewPlant extends AppCompatActivity {
         txtTemp.setText("Temperature: " + temp);
         txtHum.setText("Humidity: " + hum);
         txtSoil.setText("Soil Humidity: " + soil);
-        txtLight.setText("Light: " + data.get("Light"));
+        txtLight.setText("Light: " + data.get("light"));
         //this will look at hardcoded values
         setTemperatureColor();
         setHumidityColor();
         setSoilHumidityColor();
+        setLightColor();
     }
 
     public void setTemperatureColor(){
@@ -159,6 +162,20 @@ public class ViewPlant extends AppCompatActivity {
         }
     }
 
+    public void setLightColor(){
+        if (light > levels.get(plantType).get("light").get("ideal")-5.0 && soil < levels.get(plantType).get("light").get("ideal")+5.0){
+            //This is green so ideal temperature conditions
+            txtLight.setBackgroundColor(Color.parseColor("#008000"));
+        }
+        else if (light > levels.get(plantType).get("light").get("min") && soil < levels.get(plantType).get("light").get("max")){
+            //This is amber
+            txtLight.setBackgroundColor(Color.parseColor("#FFC200"));
+        }
+        else{
+            txtLight.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
+    }
+
     public void buildHash(){
         buildCactiHash();
         buildFloralHash();
@@ -185,6 +202,11 @@ public class ViewPlant extends AppCompatActivity {
         tmpCactiSoil.put("ideal", 120.0);
         tmpCactiSoil.put("max", 150.0);
         tmpCacti.put("soil", tmpCactiSoil);
+        HashMap<String, Double> tmpLight = new HashMap<>();
+        tmpLight.put("min", 100.0);
+        tmpLight.put("ideal", 150.0);
+        tmpLight.put("max", 200.0);
+        tmpCacti.put("light", tmpLight);
         levels.put("Cacti", tmpCacti);
     }
     public void buildFloralHash(){
@@ -206,7 +228,11 @@ public class ViewPlant extends AppCompatActivity {
         tmpSoil.put("ideal", 180.0);
         tmpSoil.put("max", 220.0);
         tmpFoloral.put("soil", tmpSoil);
-
+        HashMap<String, Double> tmpLight = new HashMap<>();
+        tmpLight.put("min", 100.0);
+        tmpLight.put("ideal", 150.0);
+        tmpLight.put("max", 200.0);
+        tmpFoloral.put("light", tmpLight);
         levels.put("Floral", tmpFoloral);
         //System.out.println("HEHHE: " + levels.get("Floral").get("temp").get("min"));
     }
@@ -229,6 +255,12 @@ public class ViewPlant extends AppCompatActivity {
         tmpSoil.put("ideal", 150.0);
         tmpSoil.put("max", 200.0);
         tmpFoloral.put("soil", tmpSoil);
+
+        HashMap<String, Double> tmpLight = new HashMap<>();
+        tmpLight.put("min", 100.0);
+        tmpLight.put("ideal", 150.0);
+        tmpLight.put("max", 200.0);
+        tmpFoloral.put("light", tmpLight);
 
         levels.put("Foliage", tmpFoloral);
     }
@@ -253,8 +285,12 @@ public class ViewPlant extends AppCompatActivity {
         tmpSoil.put("max", 200.0);
         tmpLowLight.put("soil", tmpSoil);
 
+        HashMap<String, Double> tmpLight = new HashMap<>();
+        tmpLight.put("min", 100.0);
+        tmpLight.put("ideal", 150.0);
+        tmpLight.put("max", 200.0);
+        tmpLowLight.put("light", tmpLight);
+
         levels.put("Low Light", tmpLowLight);
     }
-
-
 }

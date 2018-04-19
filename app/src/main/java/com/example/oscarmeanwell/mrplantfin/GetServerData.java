@@ -22,8 +22,7 @@ public class GetServerData extends HashMap<String, String> {
             data.put("temp", json.get("temp").toString());
             data.put("humidity", json.get("humidity").toString());
             data.put("datetime", json.get("datetime").toString());
-            data.put("light", json.get("Bright").toString());
-            System.out.println("Light: " + data.get("Bright").toString());
+            data.put("light", json.get("light").toString());
             data.put("room_humidity", json.get("room_humidity").toString());
 
         } catch (JSONException e) {
