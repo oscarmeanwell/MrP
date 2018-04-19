@@ -10,6 +10,7 @@
         android:text="Place the soil sensor in the plant pot, make sure it on!"
         android:gravity="center"
         android:padding="20dp"
+        android:textSize="20dp"
         android:id="@+id/txt1"
         android:paddingTop="15dp"/>
 
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txt1"
         android:padding="20dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:id="@+id/txt2"
         android:text="There's an LED light that helps you track the status of your plants soil. Heres how it works."/>
@@ -28,5 +30,13 @@
         android:layout_below="@id/txt2"
         android:src="@drawable/ledkey"
         android:id="@+id/LEDtxt"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_below="@id/LEDtxt"
+        android:text="Red: Dry\nGreen: Optimal\nBlue: Damp"/>
     
 </RelativeLayout>
