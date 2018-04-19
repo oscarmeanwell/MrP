@@ -10,33 +10,38 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:gravity="center_horizontal"
+    android:background="#ffffb7"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.oscarmeanwell.mrplantfin.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="42dp"
         android:gravity="center_horizontal"
-        android:text="Mr. Plant"
-        android:textSize="20dp"
-        />
+        android:text="Welcome!"
+        android:textSize="30dp" />
 
     <ImageView
-        android:paddingTop="20dp"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
         android:id="@+id/img"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:src="@mipmap/ic_launcher_foreground"/>
+        android:layout_marginTop="16dp"
+        android:paddingTop="20dp"
+        android:src="@drawable/mrpintro" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:paddingTop="15dp"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
         android:gravity="center"
         android:layout_below="@id/img"
-        android:text="Welcome to Mr. Plant!\n\nAn app where you can monitor the health of your precious plants. Please select something from the menu on the left to proceed."/>
+        android:text="I can help you monitor the health of your precious plants.\n Please select something from the menu on the left to proceed."/>
 </RelativeLayout>
