@@ -13,7 +13,7 @@ const int greenPin = 6; // ~D6
 const int bluePin = 5; // ~D5
 
 void setup() {
-  String hello[] = {"AT", "AT+CWMODE=1", "AT+CWJAP=\"AlexS9\",\"darkfruits1\"", "AT+CIFSR"};
+  String hello[] = {"AT", "AT+CWMODE=1", "AT+CWJAP=\"*SSID HERE*\",\"*PASSWORD*\"", "AT+CIFSR"};
   Serial.begin(9600);
   soil();
   rhtemp();
@@ -146,7 +146,7 @@ void set_esp8266_baud_rate(long int baud_rate){
 
 void up(){
   delay(1000);
-  String server = "54.213.142.174"; 
+  String server = "SERVER_IP"; 
   String uri = "/add.php";
   String data = "humidity=" + soil()+ rhtemp();
   espSerial.println("AT+CIPSTART=\"TCP\",\"" + server + "\",80");//start a TCP connection.
