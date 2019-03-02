@@ -1,18 +1,5 @@
-# MrP
+# MrPlant
 
-Server JSON structure looks like this
+This presents the app of an Arduino project. An arduino gathered temperature, humidity, and soil humidity data from custom sensors - it was then uploaded to a server via a PHP script, and then pulled down to this app.
 
-```
-{
-    "temp": "10",
-    "humidity": null,
-    "datetime": "2018-04-09 17:04:19"
-}
-```
-
-To get Data from the server:
-```
-HashMap<String, String> data = new GetServerData().GetServerDataNow();
-System.out.println("TEMP IS: " + data.get("temp"));
-```
-The hashmap data then contains the keys: "temp", "humidity", & "datetime".
+The app visually allowed users to monitor their plants health, and sent them backround notifications when it needed watering or a change in climate.
